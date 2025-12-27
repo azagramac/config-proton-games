@@ -79,3 +79,25 @@
 - Kernel: [6.18.2](https://github.com/azagramac/linux-kernel/releases/tag/kernel-6.18.2)
 
 ---
+
+## Resident Evil 4
+<img width="460" alt="image" src="https://github.com/user-attachments/assets/b9684cbc-66c5-4c4b-a8e5-605d36e9351d" />
+
+- Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
+- Command:
+  ```bash
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  ```
+- Settings game:
+
+  <img width="800" alt="settings_re4_1" src="https://github.com/user-attachments/assets/fd001073-efbc-42e3-8d70-483d01fd23e4" />
+  <img width="800" alt="settings_re4_2" src="https://github.com/user-attachments/assets/86ec03f8-07d5-4f59-9c81-8704b842fe01" />
+  <img width="800" alt="settings_re4_3" src="https://github.com/user-attachments/assets/2473c4ae-4a6c-4b1f-8167-5ee4cebac23e" />
+  <img width="800" alt="settings_re4_4" src="https://github.com/user-attachments/assets/9eac92b0-1b6d-48d3-b554-d9c91df3682b" />
+
+- Link: https://store.steampowered.com/app/2050650/Resident_Evil_4/
+- OS: Debian 13
+- Desktop: Gnome 48 `wayland`
+- Kernel: [6.18.2](https://github.com/azagramac/linux-kernel/releases/tag/kernel-6.18.2)
+
+---
