@@ -57,3 +57,25 @@
 - Kernel: [6.18.2](https://github.com/azagramac/linux-kernel/releases/tag/kernel-6.18.2)
 
 ---
+
+## Resident Evil 3
+<img width="460" alt="image" src="https://github.com/user-attachments/assets/4d4e5417-2446-49c6-9ebb-3d787360997c" />
+
+- Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
+- Command:
+  ```bash
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  ```
+- Settings game:
+
+  <img width="800" alt="settings_re3_1" src="https://github.com/user-attachments/assets/24feb964-1baf-42d8-b03d-5607ca0602f6" />
+  <img width="800" alt="settings_re3_2" src="https://github.com/user-attachments/assets/dfb43a10-6343-477f-88e4-c70793971fd9" />
+  <img width="800" alt="settings_re3_3" src="https://github.com/user-attachments/assets/a4153e4e-a5bc-411d-b06b-00dce3f20100" />
+  <img width="800" alt="settings_re3_4" src="https://github.com/user-attachments/assets/492fc473-19ee-4d72-9452-2bea07370202" />
+
+- Link: https://store.steampowered.com/app/952060/Resident_Evil_3/
+- OS: Debian 13
+- Desktop: Gnome 48 `wayland`
+- Kernel: [6.18.2](https://github.com/azagramac/linux-kernel/releases/tag/kernel-6.18.2)
+
+---
