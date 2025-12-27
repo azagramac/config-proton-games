@@ -17,6 +17,28 @@
 
 ---
 
+## Metal Gear Solid 3
+<img width="460" alt="image" src="https://github.com/user-attachments/assets/88dfb696-a475-405c-aef1-1cccad75f266" />
+
+- Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
+- Command:
+  ```bash
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 %command%
+  ```
+  ⚠️ When adding `RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1`, the controller stops working in the game.
+
+- Settings game:
+
+  <img width="800" alt="settings_mgs3" src="https://github.com/user-attachments/assets/429ca661-4b28-4be6-b250-23bb5609cbf3" />
+
+- Link: [MASTER COLLECTION Vol.1](https://store.steampowered.com/sub/886315/)
+- Link: https://store.steampowered.com/app/2131650/METAL_GEAR_SOLID_3_Snake_Eater__Master_Collection_Version/
+- OS: Debian 13
+- Desktop: Gnome 48 `wayland`
+- Kernel: [6.18.2](https://github.com/azagramac/linux-kernel/releases/tag/kernel-6.18.2)
+
+---
+
 ## Mortal Kombat 11 Ultimate
 <img width="460" height="215" alt="image" src="https://github.com/user-attachments/assets/2ce8cf5f-e5d7-46c9-87a5-ac33454f59a3" />
 
