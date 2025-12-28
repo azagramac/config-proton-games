@@ -1,10 +1,90 @@
+## 🎮 Install gamemode
+```bash
+sudo apt install -y gamemode
+```
+
+## 🔍 Check service gamemode
+```bash
+systemctl --user status gamemoded
+```
+output:
+```bash
+○ gamemoded.service - gamemoded 
+      Loaded: loaded (/usr/lib/systemd/user/gamemoded.service; 
+      disabled; 
+      preset: enabled) 
+      Active: inactive (dead)
+```
+
+## 🧪 Run test
+```bash
+gamemoded -t
+```
+output:
+```bash
+: Loading config
+Loading config file [/usr/share/gamemode/gamemode.ini]
+: Running tests
+
+:: Basic client tests
+:: Passed
+
+:: Dual client tests
+gamemode request succeeded and is active
+Quitting by request...
+:: Passed
+
+:: Gamemoderun and reaper thread tests
+...Waiting for child to quit...
+...Waiting for reaper thread (reaper_frequency set to 5 seconds)...
+:: Passed
+
+:: Supervisor tests
+:: Passed
+
+:: Feature tests
+::: Verifying CPU governor setting
+::: Passed
+::: Verifying Scripts
+::: Passed (no scripts configured to run)
+::: Verifying GPU Optimisations
+::: Passed (gpu optimisations not configured to run)
+::: Verifying renice
+::: Passed (no renice configured)
+::: Verifying ioprio
+::: Passed
+:: Passed
+
+: All Tests Passed!
+```
+> ✅ GameMode is correctly installed and working.
+
+## 🕹️ Test in game
+<img width="800" alt="test" src="https://github.com/user-attachments/assets/22ec28b3-3e2f-4ab2-ac19-610c451dce6b" />
+
+
+## 🚀 Install GE-Proton
+
+### ⬇️ Download latest version
+🔗 https://github.com/GloriousEggroll/proton-ge-custom/releases
+
+- Uncompress file `GE-ProtonXX-XX.tar.gz`
+- Copy extracted folder to:
+  ```bash
+  ~/.local/share/Steam/compatibilitytools.d/
+  ```
+
+## ⚙️ Activate GE-Proton on Steam
+<img width="842" height="601" alt="image" src="https://github.com/user-attachments/assets/3a65ff71-dd12-42c7-a216-ab7872073523" />
+
+
 ## Metal Gear Solid V
 <img width="460" height="215" alt="image" src="https://github.com/user-attachments/assets/204a6ea3-bbd6-4e4a-a8f0-2fd7f87476c1" />
 
 - Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
 - Command:
   ```bash
-  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 gamemoderun %command%
   ```
 - Settings game:
 
@@ -45,7 +125,7 @@
 - Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
 - Command:
   ```bash
-  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 gamemoderun %command%
   ```
 - Settings game:
 
@@ -64,7 +144,7 @@
 - Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
 - Command:
   ```bash
-  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 gamemoderun %command%
   ```
 - Settings game:
 
@@ -86,7 +166,7 @@
 - Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
 - Command:
   ```bash
-  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 gamemoderun %command%
   ```
 - Settings game:
 
@@ -108,7 +188,7 @@
 - Proton version: [GE-Proton10-27](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-27)
 - Command:
   ```bash
-  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 %command%
+  WINE_FULLSCREEN_FSR=1 WINE_FULLSCREEN_FSR_MODE=quality WINE_FULLSCREEN_FSR_CUSTOM_MODE=1920x1080 DXVK_ASYNC=1 PROTON_FSR3_UPGRADE=1 RADV_PERFTEST=aco PROTON_ENABLE_WAYLAND=1 gamemoderun %command%
   ```
 - Settings game:
 
