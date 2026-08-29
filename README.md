@@ -1,26 +1,62 @@
-## 🎮 Install gamemode
+# 🎮 GameMode
+
+[GameMode](https://github.com/FeralInteractive/gamemode) permite optimizar temporalmente el sistema cuando se ejecutan juegos, por ejemplo ajustando el governor de CPU.
+
+## 📦 Install GameMode
+
+Install the package:
+
 ```bash
 sudo apt install -y gamemode
 ```
 
-## 🔍 Check service gamemode
+🔍 Check GameMode service
+GameMode runs as a user service, so use systemctl --user:
 ```bash
 systemctl --user status gamemoded
 ```
-output:
+output
+
 ```bash
-○ gamemoded.service - gamemoded 
-      Loaded: loaded (/usr/lib/systemd/user/gamemoded.service; 
-      disabled; 
-      preset: enabled) 
-      Active: inactive (dead)
+○ gamemoded.service - gamemoded
+     Loaded: loaded (/usr/lib/systemd/user/gamemoded.service; disabled; preset: enabled)
+     Active: inactive (dead)
+```
+> This is not necessarily an error.
+
+
+`gamemoded` is normally started on demand when a client requests GameMode. It does not need to be permanently running.
+To start it manually for testing:
+```bash
+systemctl --user start gamemoded
+```
+Then verify:
+```bash
+systemctl --user status gamemoded
 ```
 
-## 🧪 Run test
+output expected:
+```bash
+● gamemoded.service - gamemoded
+     Loaded: loaded (/usr/lib/systemd/user/gamemoded.service; disabled; preset: enabled)
+     Active: active (running) since Sat 2026-08-29 16:57:53 CEST; 2s ago
+ Invocation: 3cadad69d5724633b14e8dc393d43e0d
+   Main PID: 14120 (gamemoded)
+     Status: "GameMode is ready to be activated."
+      Tasks: 2 (limit: 76860)
+     Memory: 916K (peak: 2M)
+        CPU: 6ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/gamemoded.service
+             └─14120 /usr/bin/gamemoded
+```
+
+## 🧪 Run GameMode tests
+
+Run:
 ```bash
 gamemoded -t
 ```
-output:
+output expected:
 ```bash
 : Loading config
 Loading config file [/usr/share/gamemode/gamemode.ini]
@@ -59,9 +95,165 @@ Quitting by request...
 ```
 > ✅ GameMode is correctly installed and working.
 
-## 🕹️ Test in game
-<img width="800" alt="test" src="https://github.com/user-attachments/assets/22ec28b3-3e2f-4ab2-ac19-610c451dce6b" />
 
+## ⚠️ Troubleshooting: CPU governor test fails
+
+On systems using modern AMD CPUs with amd-pstate-epp, GameMode may report:
+
+```bash
+::: Verifying CPU governor setting
+ERROR: Governor was not set to performance (was actually powersave)!
+::: Failed!
+```
+> This does not necessarily mean that GameMode is broken.
+
+First check which CPU frequency driver is being used:
+```bash
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver
+```
+For an AMD system using the modern P-State driver, the result should be similar to:
+```bash
+amd-pstate-epp
+```
+Check the available governors:
+```bash
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+```
+output expected:
+```bash
+performance powersave
+```
+
+## 🔋 Check power-profiles-daemon
+Debian may have power-profiles-daemon enabled:
+```bash
+systemctl status power-profiles-daemon --no-pager
+```
+output expected:
+```bash
+$ systemctl status power-profiles-daemon --no-pager
+● power-profiles-daemon.service - Power Profiles daemon
+     Loaded: loaded (/usr/lib/systemd/system/power-profiles-daemon.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-08-29 16:37:41 CEST; 39min ago
+ Invocation: 97f8018f198049109c31e307f1e06c18
+   Main PID: 1515 (power-profiles-)
+      Tasks: 4 (limit: 76860)
+     Memory: 1.7M (peak: 2.6M)
+        CPU: 135ms
+     CGroup: /system.slice/power-profiles-daemon.service
+             └─1515 /usr/libexec/power-profiles-daemon
+
+Warning: some journal files were not opened due to insufficient permissions.
+```
+Check the current power profile:
+```bash
+powerprofilesctl get
+```
+output expected:
+```bash
+balanced
+```
+the CPU may be using:
+```bash
+scaling governor: powersave
+```
+
+❌ Output error Gamemode
+```bash
+: Loading config
+Loading config file [/usr/share/gamemode/gamemode.ini]
+: Running tests
+
+:: Basic client tests
+:: Passed
+
+:: Dual client tests
+gamemode request succeeded and is active
+Quitting by request...
+:: Passed
+
+:: Gamemoderun and reaper thread tests
+...Waiting for child to quit...
+...Waiting for reaper thread (reaper_frequency set to 5 seconds)...
+:: Passed
+
+:: Supervisor tests
+:: Passed
+
+:: Feature tests
+::: Verifying CPU governor setting
+ERROR: Governor was not set to performance (was actually powersave)!
+::: Failed!
+::: Verifying Scripts
+::: Passed (no scripts configured to run)
+::: Verifying GPU Optimisations
+::: Passed (gpu optimisations not configured to run)
+::: Verifying renice
+::: Passed (no renice configured)
+::: Verifying ioprio
+::: Passed
+ERROR: :: Failed!
+: Tests Failed!
+```
+> ⚠️ This can cause the GameMode CPU governor test to fail.
+
+
+## 🚀 Test with the performance profile
+Temporarily switch to the performance profile:
+```bash
+powerprofilesctl set performance
+```
+Verify:
+```bash
+powerprofilesctl get
+```
+Expected:
+```bash
+performance
+```
+Then check the CPU governor:
+```bash
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+```
+Expected:
+```bash
+performance
+```
+Run the GameMode test again:
+If the test now ends with:
+```bash
+: All Tests Passed!
+```
+> ✅ GameMode is correctly installed and working.
+
+## 🔄 Restore the normal profile
+After testing, return to the normal balanced profile:
+```bash
+powerprofilesctl set balanced
+```
+Verify:
+```bash
+powerprofilesctl get
+```
+Expected:
+```bash
+balanced
+```
+The CPU governor will normally return to:
+```bash
+powersave
+```
+This is expected.
+
+## 🕹️ Test in game
+
+🎮 Using GameMode with games
+For Steam games, add this to the game's Launch Options:
+```bash
+gamemoderun %command%
+```
+
+<img width="800" alt="test" src="https://github.com/user-attachments/assets/22ec28b3-3e2f-4ab2-ac19-610c451dce6b" />
 
 ## 🚀 Install GE-Proton
 
