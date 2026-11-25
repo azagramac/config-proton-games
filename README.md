@@ -377,7 +377,7 @@ PROTON_ENABLE_WAYLAND=1 WAYLANDDRV_RAWINPUT=0 PROTON_FORCE_HDR=1 PROTON_NO_ESYNC
 
 ## Metal Gear Solid V: The Phantom Pain
 
-<img width="460" height="215" alt="Metal Gear Solid V" src="https://github.com/user-attachments/assets/204a6ea3-bbd6-4e4a-8a0f-2fd7f87476c1" />
+<img width="460" height="215" alt="Metal Gear Solid V" src="https://github.com/user-attachments/assets/28f79a5a-8cdc-4745-b285-36c433707fff" />
 
 **Configuration**
 
