@@ -270,7 +270,7 @@ gamemoderun %command%
 <img width="842" height="601" alt="image" src="https://github.com/user-attachments/assets/3a65ff71-dd12-42c7-a216-ab7872073523" />
 
 ## Grand Theft Auto V Legacy
-<img width="800" alt="img_gta" src="https://github.com/user-attachments/assets/632f9e7b-e93e-42b8-b7af-403b0cb5f6e6" />
+<img width="460" alt="img_gta" src="https://github.com/user-attachments/assets/65b39e8a-7651-41f7-8e62-91db687993c0" />
 
 - Proton version: [GE-Proton11-14](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton11-14)
 - Command:
