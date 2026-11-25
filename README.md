@@ -2,12 +2,12 @@
 
 [GameMode](https://github.com/FeralInteractive/gamemode) permite optimizar temporalmente el sistema cuando se ejecutan juegos, por ejemplo ajustando el governor de CPU.
 
-## 📦 Install GameMode
+## 📦 Install GameMode & mangohud
 
 Install the package:
 
 ```bash
-sudo apt install -y gamemode
+sudo apt install -y gamemode mangohud
 ```
 
 🔍 Check GameMode service
@@ -268,6 +268,26 @@ gamemoderun %command%
 
 ## ⚙️ Activate GE-Proton on Steam
 <img width="842" height="601" alt="image" src="https://github.com/user-attachments/assets/3a65ff71-dd12-42c7-a216-ab7872073523" />
+
+## Grand Theft Auto V Legacy
+<img width="800" alt="img_gta" src="https://github.com/user-attachments/assets/632f9e7b-e93e-42b8-b7af-403b0cb5f6e6" />
+
+- Proton version: [GE-Proton11-14](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton11-14)
+- Command:
+  ```bash
+  PROTON_ENABLE_WAYLAND=1 WAYLANDDRV_RAWINPUT=0 PROTON_FORCE_HDR=1 PROTON_NO_ESYNC=1 PROTON_USE_FSYNC=1 MANGOHUD=1 gamemoderun %command%
+  ```
+- Settings game:
+<img width="800" alt="settings_01" src="https://github.com/user-attachments/assets/3603a0bb-1a18-4ba3-9f5f-99fa039a48b5" />
+<img width="800" alt="settings_02" src="https://github.com/user-attachments/assets/3b3e96e8-f07a-4100-ba13-2abca2d333eb" />
+<img width="800" alt="settings_03" src="https://github.com/user-attachments/assets/df9bb970-e4f8-4a99-b172-55270013ba0b" />
+<img width="800" alt="settings_04" src="https://github.com/user-attachments/assets/2a1c6185-0470-4794-9f8c-a07d1cf86d00" />
+
+
+- Link: https://store.steampowered.com/app/271590/Grand_Theft_Auto_V_Legacy
+- OS: Debian 13.8
+- Desktop: Gnome 48 `wayland`
+- Kernel: [7.3.6](https://github.com/azagramac/linux-kernel/releases/tag/kernel-135)
 
 
 ## Metal Gear Solid V
